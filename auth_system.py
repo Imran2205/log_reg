@@ -41,7 +41,7 @@ class RegisterUIClass(QMainWindow, register.Ui_MainWindow):
     def register_func(self):
         self.db = pd.read_csv('info.csv')
         self.info['Name'] = self.lineEdit_name.text()
-        self.info['Email'] = self.lineEdit_email.text()
+        self.info['Email'] = self.lineEdit_email.text().lower()
         self.info['Age'] = self.spinBox_age.value()
         self.info['Gender'] = self.comboBox_gender.currentText()
         self.info['University'] = self.lineEdit_university.text()
@@ -180,7 +180,7 @@ class LoginUIClass(QMainWindow, login.Ui_MainWindow):
 
     def login_func(self):
         self.db = pd.read_csv('info.csv')
-        email = self.lineEdit_email.text()
+        email = self.lineEdit_email.text().lower()
         password = self.lineEdit_password.text()
         if email in list(self.db['Email']):
             self.label_error.setText("")
