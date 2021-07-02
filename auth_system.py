@@ -1,3 +1,4 @@
+# pyinstaller --onefile --windowed auth_system.py
 import sys
 
 from PyQt5 import QtWidgets
@@ -84,7 +85,7 @@ class RegisterUIClass(QMainWindow, register.Ui_MainWindow):
                 self.label_name_error.setText("")
                 self.info['Name'] = new_name
                 checker1 = r'[A-Za-z0-9._%+-]+@ulkasemi\.com$'
-                checker2 = r'[A-Za-z0-9._%+-]+@gfoundties\.com$'
+                checker2 = r'[A-Za-z0-9._%+-]+@gfoundries\.com$'
                 if re.match(checker1, self.info['Email']) or re.match(checker2, self.info['Email']):
                     if self.info['Email'] in list(self.db['Email']):
                         email_exists = True
